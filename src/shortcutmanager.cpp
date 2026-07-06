@@ -109,6 +109,30 @@ void ShortcutManager::initializeShortcutsList()
                            {} });
     shortcutsList.append(
             { tr("Last File"), "lastfile", QStringList(QKeySequence(Qt::Key_End).toString()), {} });
+    shortcutsList.append({ tr("Skip Forward 10"),
+                           "skip10",
+                           QStringList(QKeySequence(Qt::Key_1).toString()),
+                           {} });
+    shortcutsList.append({ tr("Skip Forward 100"),
+                           "skip100",
+                           QStringList(QKeySequence(Qt::Key_2).toString()),
+                           {} });
+    shortcutsList.append({ tr("Skip Forward 1000"),
+                           "skip1000",
+                           QStringList(QKeySequence(Qt::Key_3).toString()),
+                           {} });
+    shortcutsList.append({ tr("Skip Backward 10"),
+                           "skipback10",
+                           QStringList(QKeySequence(Qt::CTRL | Qt::Key_1).toString()),
+                           {} });
+    shortcutsList.append({ tr("Skip Backward 100"),
+                           "skipback100",
+                           QStringList(QKeySequence(Qt::CTRL | Qt::Key_2).toString()),
+                           {} });
+    shortcutsList.append({ tr("Skip Backward 1000"),
+                           "skipback1000",
+                           QStringList(QKeySequence(Qt::CTRL | Qt::Key_3).toString()),
+                           {} });
     shortcutsList.append(
             { tr("Zoom In"), "zoomin", keyBindingsToStringList(QKeySequence::ZoomIn), {} });
     // Allow zooming with Ctrl + plus like a regular person (without holding shift)

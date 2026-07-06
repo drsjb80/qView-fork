@@ -99,6 +99,10 @@ public:
 
     void lastFile();
 
+    void skipForward(int count);
+
+    void skipBackward(int count);
+
     void saveFrameAs();
 
     void pause();

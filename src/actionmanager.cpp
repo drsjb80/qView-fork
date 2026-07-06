@@ -216,6 +216,14 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     addCloneOfAction(goMenu, "previousfile");
     addCloneOfAction(goMenu, "nextfile");
     addCloneOfAction(goMenu, "lastfile");
+    goMenu->addSeparator();
+    addCloneOfAction(goMenu, "skip10");
+    addCloneOfAction(goMenu, "skip100");
+    addCloneOfAction(goMenu, "skip1000");
+    goMenu->addSeparator();
+    addCloneOfAction(goMenu, "skipback10");
+    addCloneOfAction(goMenu, "skipback100");
+    addCloneOfAction(goMenu, "skipback1000");
 
     menuBar->addMenu(goMenu);
     // End of go menu
@@ -609,6 +617,18 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->nextFile();
     } else if (key == "lastfile") {
         relevantWindow->lastFile();
+    } else if (key == "skip10") {
+        relevantWindow->skipForward(10);
+    } else if (key == "skip100") {
+        relevantWindow->skipForward(100);
+    } else if (key == "skip1000") {
+        relevantWindow->skipForward(1000);
+    } else if (key == "skipback10") {
+        relevantWindow->skipBackward(10);
+    } else if (key == "skipback100") {
+        relevantWindow->skipBackward(100);
+    } else if (key == "skipback1000") {
+        relevantWindow->skipBackward(1000);
     } else if (key == "saveframeas") {
         relevantWindow->saveFrameAs();
     } else if (key == "pause") {
@@ -766,9 +786,38 @@ void ActionManager::initializeActionLibrary()
     lastFileAction->setData({ "folderdisable" });
     actionLibrary.insert("lastfile", lastFileAction);
 
+<<<<<<< HEAD
     auto *saveFrameAsAction =
             new QAction(QIcon::fromTheme("document-save-as"), tr("Save Frame &As..."));
     saveFrameAsAction->setData({ "gifdisable" });
+=======
+    auto *skip10Action = new QAction(QIcon::fromTheme("go-next"), tr("Skip Forward 10"));
+    skip10Action->setData({"folderdisable"});
+    actionLibrary.insert("skip10", skip10Action);
+
+    auto *skip100Action = new QAction(QIcon::fromTheme("go-next"), tr("Skip Forward 100"));
+    skip100Action->setData({"folderdisable"});
+    actionLibrary.insert("skip100", skip100Action);
+
+    auto *skip1000Action = new QAction(QIcon::fromTheme("go-next"), tr("Skip Forward 1000"));
+    skip1000Action->setData({"folderdisable"});
+    actionLibrary.insert("skip1000", skip1000Action);
+
+    auto *skipBack10Action = new QAction(QIcon::fromTheme("go-previous"), tr("Skip Backward 10"));
+    skipBack10Action->setData({"folderdisable"});
+    actionLibrary.insert("skipback10", skipBack10Action);
+
+    auto *skipBack100Action = new QAction(QIcon::fromTheme("go-previous"), tr("Skip Backward 100"));
+    skipBack100Action->setData({"folderdisable"});
+    actionLibrary.insert("skipback100", skipBack100Action);
+
+    auto *skipBack1000Action = new QAction(QIcon::fromTheme("go-previous"), tr("Skip Backward 1000"));
+    skipBack1000Action->setData({"folderdisable"});
+    actionLibrary.insert("skipback1000", skipBack1000Action);
+
+    auto *saveFrameAsAction = new QAction(QIcon::fromTheme("document-save-as"), tr("Save Frame &As..."));
+    saveFrameAsAction->setData({"gifdisable"});
+>>>>>>> 57fb231 (feat: add skip forward/backward navigation by 10/100/1000 images)
     actionLibrary.insert("saveframeas", saveFrameAsAction);
 
     auto *pauseAction = new QAction(QIcon::fromTheme("media-playback-pause"), tr("Pa&use"));

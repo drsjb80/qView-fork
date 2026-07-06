@@ -1048,6 +1048,35 @@ void MainWindow::lastFile()
     graphicsView->goToFile(QVGraphicsView::GoToFileMode::last);
 }
 
+void MainWindow::skipForward(int count)
+{
+    const auto &fileDetails = getCurrentFileDetails();
+    if (fileDetails.folderFileInfoList.isEmpty())
+        return;
+
+    int newIndex = fileDetails.loadedIndexInFolder + count;
+    const int maxIndex = fileDetails.folderFileInfoList.count() - 1;
+
+    if (newIndex > maxIndex)
+        newIndex = maxIndex;
+
+    graphicsView->goToFile(QVGraphicsView::GoToFileMode::constant, newIndex);
+}
+
+void MainWindow::skipBackward(int count)
+{
+    const auto &fileDetails = getCurrentFileDetails();
+    if (fileDetails.folderFileInfoList.isEmpty())
+        return;
+
+    int newIndex = fileDetails.loadedIndexInFolder - count;
+
+    if (newIndex < 0)
+        newIndex = 0;
+
+    graphicsView->goToFile(QVGraphicsView::GoToFileMode::constant, newIndex);
+}
+
 void MainWindow::saveFrameAs()
 {
     QSettings settings;
