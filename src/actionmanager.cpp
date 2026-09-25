@@ -786,11 +786,6 @@ void ActionManager::initializeActionLibrary()
     lastFileAction->setData({ "folderdisable" });
     actionLibrary.insert("lastfile", lastFileAction);
 
-<<<<<<< HEAD
-    auto *saveFrameAsAction =
-            new QAction(QIcon::fromTheme("document-save-as"), tr("Save Frame &As..."));
-    saveFrameAsAction->setData({ "gifdisable" });
-=======
     auto *skip10Action = new QAction(QIcon::fromTheme("go-next"), tr("Skip Forward 10"));
     skip10Action->setData({"folderdisable"});
     actionLibrary.insert("skip10", skip10Action);
@@ -817,7 +812,6 @@ void ActionManager::initializeActionLibrary()
 
     auto *saveFrameAsAction = new QAction(QIcon::fromTheme("document-save-as"), tr("Save Frame &As..."));
     saveFrameAsAction->setData({"gifdisable"});
->>>>>>> 57fb231 (feat: add skip forward/backward navigation by 10/100/1000 images)
     actionLibrary.insert("saveframeas", saveFrameAsAction);
 
     auto *pauseAction = new QAction(QIcon::fromTheme("media-playback-pause"), tr("Pa&use"));
